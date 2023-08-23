@@ -6,5 +6,6 @@ Check out our [Spigot-Page](https://www.spigotmc.org/resources/tpaplus.111724/) 
 _Code by T0m1keu_ 
 
 ## Description
-TpaPlus is a simple tpa plugin
+TpaPlus is a simple tpa plugin for your minecraft server
+
 
