@@ -6,9 +6,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class TpaPlus extends JavaPlugin implements Listener {
-    
+import java.io.File;
+import java.io.IOException;
 
+public final class TpaPlus extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
@@ -16,6 +17,11 @@ public final class TpaPlus extends JavaPlugin implements Listener {
         teleports.setup();
         teleports.get().options().copyDefaults(true);
         teleports.save();
+
+        //config.yml
+        saveDefaultConfig();
+
+
 
         registerCommands();
         getServer().getPluginManager().registerEvents(this,this);
