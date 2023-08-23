@@ -33,7 +33,9 @@ public class tpa implements CommandExecutor {
 
 
 
-                if (args.length == 1) {
+                if (args.length == 0){
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c/tpa <player>"));
+                } else {
                     String tname = args[0];
                     Player target = Bukkit.getPlayerExact(tname);
                     String pname = p.getDisplayName();
@@ -64,6 +66,9 @@ public class tpa implements CommandExecutor {
                                     teleports.save();
 
 
+                                    String tmessage1 = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-message-sender")).replace("%Player%",tname);
+
+
                                     TextComponent message = new TextComponent(Utils.chat("&e&l" + pname + " &6wants to teleport to you"));
                                     TextComponent confirm = new TextComponent(Utils.chat(" &a&l[✔]"));
                                     confirm.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpaccept " + pname));
@@ -71,7 +76,7 @@ public class tpa implements CommandExecutor {
                                     TextComponent reject = new TextComponent(Utils.chat("&c&l[✖]"));
                                     reject.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpreject " + pname));
                                     reject.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(Utils.chat("&c&lreject")).create()));
-                                    TextComponent tmessage = new TextComponent(Utils.chat("&7Tpa sent to &a&l" + target.getDisplayName()));
+                                    TextComponent tmessage = new TextComponent(Utils.chat(tmessage1));
                                     TextComponent cancel = new TextComponent(Utils.chat(" &c&l[✖]"));
                                     cancel.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpcancel  " + tname));
                                     cancel.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(Utils.chat("&c&lcancel")).create()));
@@ -86,8 +91,6 @@ public class tpa implements CommandExecutor {
 
 
                     }
-                } else {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c/tpa <player>"));
                 }
 
         }

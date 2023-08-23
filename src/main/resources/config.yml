@@ -3,6 +3,7 @@
 # Please read each description carefully before changing anything.
 # For more information visit: https://www.spigotmc.org/resources/tpaplus.111724/
 
-
-
+# message you get sent when sending tpa to someone
+tpa-message-sender: '&7Tpa sent to &a&l%Player%'
+cancel-tpa-button: ''
 
