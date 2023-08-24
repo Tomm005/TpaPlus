@@ -5,5 +5,14 @@
 
 # message you get sent when sending tpa to someone
 tpa-message-sender: '&7Tpa sent to &a&l%Player%'
-cancel-tpa-button: ''
+# message sent to the person u are requesting to teleport
+tpa-message-target: '&e&l %Player% &6wants to teleport to you'
+# message you get when u sent tpa to someone u already requested
+tpa-already-sent: '&cYou already sent this player tpa'
+
+
+# message you get when accepting tpa
+tpa-accept-message: '&a&lYou accepted tpa from %Player%'
+# message target get when u accept his tpa
+tpa-accept-message-target: '&a&l %Player% accepted your tpa'
 

@@ -57,9 +57,8 @@ public class tpa implements CommandExecutor {
                                 p.sendMessage(Utils.chat("&c&lYou have ignored this player"));
                             } else {
                                 if (Objects.equals(teleports.get().getString("tpa." + pname + ".to."+tname), "yes")) {
-                                    p.sendMessage(Utils.chat("&cYou already sent this player tpa"));
-                                    p.sendMessage(Utils.chat("&cwait for them to accept/reject"));
-                                    p.sendMessage(Utils.chat("&cor you can type /tpcancel <player>"));
+                                    String alreadySent = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-already-sent"));
+                                    p.sendMessage(Utils.chat(alreadySent));
                                 } else {
 
                                     teleports.get().set("tpa." + pname + ".to."+tname, "yes");
@@ -67,9 +66,10 @@ public class tpa implements CommandExecutor {
 
 
                                     String tmessage1 = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-message-sender")).replace("%Player%",tname);
+                                    String message1 = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-message-target")).replace("%Player%",pname);
 
 
-                                    TextComponent message = new TextComponent(Utils.chat("&e&l" + pname + " &6wants to teleport to you"));
+                                    TextComponent message = new TextComponent(Utils.chat(message1));
                                     TextComponent confirm = new TextComponent(Utils.chat(" &a&l[✔]"));
                                     confirm.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpaccept " + pname));
                                     confirm.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(Utils.chat("&a&lconfirm")).create()));

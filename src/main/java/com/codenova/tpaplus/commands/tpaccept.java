@@ -39,8 +39,10 @@ public class tpaccept implements CommandExecutor {
                         } else {
                             if (Objects.equals(teleports.get().getString("tpa." + tname + ".to."+pname), "yes")) {
                                 target.teleport(p);
-                                p.sendMessage(Utils.chat("&a&lYou accepted tpa from "+tname));
-                                target.sendMessage(Utils.chat("&a&l"+pname+" accepted your tpa"));
+                                String accepted = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-accept-message")).replace("%Player%",tname);
+                                p.sendMessage(Utils.chat(accepted));
+                                String accept = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-accept-message-target")).replace("%Player%",pname);
+                                target.sendMessage(Utils.chat(accept));
                                 teleports.get().set("tpa." + tname+".to."+pname, null);
                                 teleports.save();
                             } else {

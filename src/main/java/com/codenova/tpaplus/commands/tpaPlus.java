@@ -17,6 +17,7 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.util.*;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,6 +36,7 @@ public class tpaPlus implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+
 
 
         Player p = (Player) sender;
@@ -61,6 +63,9 @@ public class tpaPlus implements CommandExecutor {
 
 
                     teleports.reload();
+                    plugin.reloadConfig();
+
+
 
 
                     p.sendMessage(Utils.chat("&7Reloading..."));
