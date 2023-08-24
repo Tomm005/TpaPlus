@@ -38,8 +38,10 @@ public class tpcancel implements CommandExecutor {
                             p.sendMessage(Utils.chat("&cYou didnt sent this player tpa"));
                         } else {
                             if (Objects.equals(teleports.get().getString("tpa." + pname + ".to."+tname), "yes")) {
-                                p.sendMessage(Utils.chat("&6&lYou cancelled tpa to "+tname));
-                                target.sendMessage(Utils.chat("&c&l"+pname+" cancelled tpa to you"));
+                                String cancelp = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-cancel-message")).replace("%Player%",tname);
+                                p.sendMessage(Utils.chat(cancelp));
+                                String cancelt = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-cancel-message-target")).replace("%Player%",pname);
+                                target.sendMessage(Utils.chat(cancelt));
                                 teleports.get().set("tpa." + pname+".to."+tname, null);
                                 teleports.save();
                             } else {

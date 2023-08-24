@@ -36,13 +36,15 @@ public class tpignore implements CommandExecutor {
                         p.sendMessage(Utils.chat("&cYou cant ignore yourself"));
                     } else {
                         if (!Objects.equals(teleports.get().getString("tpa." + pname + ".ignored." + tname), "yes")){
-                            p.sendMessage(Utils.chat("&cYou added &c&l"+tname+" &cto your ignore list"));
+                            String ignoreAdd = Objects.requireNonNull(this.plugin.getConfig().getString("ignore-add-message")).replace("%Player%",tname);
+                            p.sendMessage(Utils.chat(ignoreAdd));
                             teleports.get().set("tpa."+pname+".ignored."+tname,"yes");
                             teleports.get().set("tpa."+pname+".to."+tname,null);
                             teleports.get().set("tpa."+tname+".to."+pname,null);
                             teleports.save();
                     } else {
-                            p.sendMessage(Utils.chat("&aYou removed &a&l"+tname+" &afrom your ignore list"));
+                            String ignoreRemove = Objects.requireNonNull(this.plugin.getConfig().getString("ignore-remove-message")).replace("%Player%",tname);
+                            p.sendMessage(Utils.chat(ignoreRemove));
                             teleports.get().set("tpa."+pname+".ignored."+tname,null);
                             teleports.save();
                         }

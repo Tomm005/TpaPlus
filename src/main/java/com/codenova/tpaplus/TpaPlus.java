@@ -2,14 +2,11 @@ package com.codenova.tpaplus;
 
 import com.codenova.tpaplus.commands.*;
 import com.codenova.tpaplus.files.teleports;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
-import java.io.IOException;
-
 public final class TpaPlus extends JavaPlugin implements Listener {
+
 
     @Override
     public void onEnable() {

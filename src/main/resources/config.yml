@@ -1,4 +1,4 @@
-# TpaPlis - Coded by T0m1keu
+# TpaPlus - Coded by T0m1keu
 # For each setting, there is a small description.
 # Please read each description carefully before changing anything.
 # For more information visit: https://www.spigotmc.org/resources/tpaplus.111724/
@@ -6,7 +6,7 @@
 # message you get sent when sending tpa to someone
 tpa-message-sender: '&7Tpa sent to &a&l%Player%'
 # message sent to the person u are requesting to teleport
-tpa-message-target: '&e&l %Player% &6wants to teleport to you'
+tpa-message-target: '&e&l%Player% &6wants to teleport to you'
 # message you get when u sent tpa to someone u already requested
 tpa-already-sent: '&cYou already sent this player tpa'
 
@@ -14,5 +14,23 @@ tpa-already-sent: '&cYou already sent this player tpa'
 # message you get when accepting tpa
 tpa-accept-message: '&a&lYou accepted tpa from %Player%'
 # message target get when u accept his tpa
-tpa-accept-message-target: '&a&l %Player% accepted your tpa'
+tpa-accept-message-target: '&a&l%Player% accepted your tpa'
+
+
+# message u get when canceling tpa
+tpa-cancel-message: '&6&lYou cancelled tpa to %Player%'
+# message player get when you cancel tpa to him
+tpa-cancel-message-target: '&c&l%Player% cancelled tpa to you'
+
+
+# message you get sent when ignoring player
+ignore-add-message: '&cYou added &c&l%Player% &cto your ignore list'
+# message you get sent when unignoring player
+ignore-remove-message: '&aYou removed &a&l%Player% &afrom your ignore list'
+
+
+# message u get when rejecting tpa
+tpa-reject-message: '&6&lYou rejected tpa from %Player%'
+# message player get when rejecting his tpa
+tpa-reject-message-target: '&c&l%Player% rejected your tpa'
 

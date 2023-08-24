@@ -39,8 +39,10 @@ public class tpreject implements CommandExecutor{
                             p.sendMessage(Utils.chat("&cThis player didnt sent you tpa"));
                         } else {
                             if (Objects.equals(teleports.get().getString("tpa." + tname + ".to."+pname), "yes")) {
-                                p.sendMessage(Utils.chat("&6&lYou rejected tpa from "+tname));
-                                target.sendMessage(Utils.chat("&c&l"+pname+" rejected your tpa"));
+                                String rejectp = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-reject-message")).replace("%Player%",tname);
+                                p.sendMessage(Utils.chat(rejectp));
+                                String rejectt = Objects.requireNonNull(this.plugin.getConfig().getString("tpa-reject-message-target")).replace("%Player%",pname);
+                                target.sendMessage(Utils.chat(rejectt));
                                 teleports.get().set("tpa." + tname+".to."+pname, null);
                                 teleports.save();
                             } else {
